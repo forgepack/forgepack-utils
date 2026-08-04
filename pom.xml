@@ -9,11 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.forgepack</groupId>
-	<artifactId>forgepack-utils</artifactId>
+	<artifactId>utils</artifactId>
 	<version>0.0.1</version>
 	<name>Maven Library</name>
 	<description>Project for Spring Boot library</description>
-	<url>https://github.com/orgs/forgepack/forgepack-forgepack-utils</url>
+	<url>https://github.com/orgs/forgepack/forgepack-utils</url>
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -33,9 +33,9 @@
 		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git://github.com/forgepack/forgepack-forgepack-utils.git</connection>
-		<developerConnection>scm:git:ssh://github.com:forgepack/forgepack-forgepack-utils.git</developerConnection>
-		<url>https://github.com/forgepack/forgepack-forgepack-utils</url>
+		<connection>scm:git:git://github.com/forgepack/forgepack-utils.git</connection>
+		<developerConnection>scm:git:ssh://github.com:forgepack/forgepack-utils.git</developerConnection>
+		<url>https://github.com/forgepack/forgepack-utils</url>
 		<tag/>
 	</scm>
 	<properties>

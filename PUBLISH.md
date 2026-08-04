@@ -11,7 +11,7 @@
 
 Artifact published on Maven Central.
 ```bash
-dev.forgepack:forgepack-utils:{VERSION}
+dev.forgepack:utils:{VERSION}
 ```
 
 ## 1. PUBLISHING TO MAVEN CENTRAL
@@ -118,11 +118,11 @@ mvn clean deploy
 
 This will publish the following artifacts:
 ```bash
-forgepack-utils-{VERSION}.jar
-forgepack-utils-{VERSION}.pom
-forgepack-utils-{VERSION}-sources.jar
-forgepack-utils-{VERSION}-javadoc.jar
-forgepack-utils-{VERSION}.asc
+utils-{VERSION}.jar
+utils-{VERSION}.pom
+utils-{VERSION}-sources.jar
+utils-{VERSION}-javadoc.jar
+utils-{VERSION}.asc
 ```
 
 ## 7. Tag the Release
