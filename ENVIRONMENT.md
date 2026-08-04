@@ -12,11 +12,11 @@
 
 ```bash
 # clone the repository
-git clone https://github.com/forgepack/forgepack-ARTIFACT
-cd forgepack-ARTIFACT
+git clone https://github.com/forgepack/forgepack-forgepack-utils
+cd forgepack-forgepack-utils
 
 # add remote upstream
-git remote add upstream https://github.com/forgepack/forgepack-ARTIFACT
+git remote add upstream https://github.com/forgepack/forgepack-forgepack-utils
 
 # install and compile
 mvn clean install

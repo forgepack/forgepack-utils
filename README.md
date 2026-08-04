@@ -1,10 +1,10 @@
-# _forgepack-ARTIFACT_
-[![GitHub stars](https://img.shields.io/github/stars/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT)
-[![GitHub forks](https://img.shields.io/github/forks/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT)
+# _forgepack-forgepack-utils_
+[![GitHub stars](https://img.shields.io/github/stars/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils)
+[![GitHub forks](https://img.shields.io/github/forks/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/forgepack/forgepack-ARTIFACT)
-![Maven Central](https://img.shields.io/maven-central/v/dev.forgepack/ARTIFACT)
+![GitHub last commit](https://img.shields.io/github/last-commit/forgepack/forgepack-forgepack-utils)
+![Maven Central](https://img.shields.io/maven-central/v/dev.forgepack/forgepack-utils)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Test Coverage](https://img.shields.io/badge/coverage-0%25-red)
 
@@ -15,7 +15,7 @@
 
 ## Description
 
-_forgepack-ARTIFACT_ is a Spring Boot auto-configuration library that {DESCRIPTION}.
+_forgepack-forgepack-utils_ is a Spring Boot auto-configuration library that {DESCRIPTION}.
 
 ## SUMMARY
 - [1. Installation](#1-installation)
@@ -32,14 +32,14 @@ _forgepack-ARTIFACT_ is a Spring Boot auto-configuration library that {DESCRIPTI
 ```xml
 <dependency>
     <groupId>dev.forgepack</groupId>
-    <artifactId>ARTIFACT</artifactId>
+    <artifactId>forgepack-utils</artifactId>
     <version>{VERSION}</version>
 </dependency>
 ```
 
 ### 1.2. Gradle
 ```groovy
-implementation 'dev.forgepack:ARTIFACT:{VERSION}'
+implementation 'dev.forgepack:forgepack-utils:{VERSION}'
 ```
 
 ## 2. USAGE
@@ -61,8 +61,8 @@ public class MyApplication {
 
 ```properties
 # application.properties
-forgepack.ARTIFACT.enabled=true
-forgepack.ARTIFACT.property-name=value
+forgepack.forgepack-utils.enabled=true
+forgepack.forgepack-utils.property-name=value
 ```
 
 ## 3. AUTO-CONFIGURATION
@@ -73,8 +73,8 @@ The library registers its auto-configuration through:
 META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports
 ```
 
-All public API classes are available under `dev.forgepack.ARTIFACT.api`.  
-Internal implementation details are encapsulated in `dev.forgepack.ARTIFACT.internal`.
+All public API classes are available under `dev.forgepack.forgepack-utils.api`.  
+Internal implementation details are encapsulated in `dev.forgepack.forgepack-utils.internal`.
 
 ## 4. QUALITY & TESTING
 
@@ -85,8 +85,8 @@ TOTAL NUMBER OF TESTS: 0
 
 | Package                                              | Coverage |        |
 |:-----------------------------------------------------|:--------:|:------:|
-| 📁 dev.forgepack.ARTIFACT.api                  |    0%    |   🔴   |
-| 📁 dev.forgepack.ARTIFACT.internal             |    0%    |   🔴   |
+| 📁 dev.forgepack.forgepack-utils.api                  |    0%    |   🔴   |
+| 📁 dev.forgepack.forgepack-utils.internal             |    0%    |   🔴   |
 
 ### 4.2. Types of Tests Implemented
 1. __Unit Tests__: Service and component layer
@@ -102,13 +102,13 @@ mvn test
 mvn clean test jacoco:report
 ```
 
-## 5. ARTIFACT COORDINATES
+## 5. forgepack-utils COORDINATES
 
 ### 5.1. Dependency declaration
 ```xml
 <dependency>
     <groupId>dev.forgepack</groupId>
-    <artifactId>ARTIFACT</artifactId>
+    <artifactId>forgepack-utils</artifactId>
     <version>{VERSION}</version>
 </dependency>
 ```
@@ -133,8 +133,8 @@ mvn clean test jacoco:report
 # ╔══════════════════════════════════════════════╗
 # ║         LIBRARY CONFIGURATION                ║
 # ╚══════════════════════════════════════════════╝
-forgepack.ARTIFACT.enabled=true
-forgepack.ARTIFACT.property-name=default-value
+forgepack.forgepack-utils.enabled=true
+forgepack.forgepack-utils.property-name=default-value
 ```
 
 ## DEVELOPERS
@@ -174,9 +174,9 @@ SOFTWARE.
 
 __⭐ Did you like the project? Leave a star! ⭐__
 
-[![GitHub stars](https://img.shields.io/github/stars/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT)
-[![GitHub forks](https://img.shields.io/github/forks/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT/fork)
-[![GitHub watchers](https://img.shields.io/github/watchers/forgepack/forgepack-ARTIFACT?style=social)](https://github.com/forgepack/forgepack-ARTIFACT)
+[![GitHub stars](https://img.shields.io/github/stars/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils)
+[![GitHub forks](https://img.shields.io/github/forks/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils/fork)
+[![GitHub watchers](https://img.shields.io/github/watchers/forgepack/forgepack-forgepack-utils?style=social)](https://github.com/forgepack/forgepack-forgepack-utils)
 
 __Made by [Forgepack](https://github.com/forgepack)__
 
