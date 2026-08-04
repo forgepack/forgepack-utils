@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.forgepack</groupId>
-	<artifactId>utils</artifactId>
+	<artifactId>forgepack-utils</artifactId>
 	<version>0.0.1</version>
 	<name>Maven Library</name>
 	<description>Project for Spring Boot library</description>
