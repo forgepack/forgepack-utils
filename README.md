@@ -22,7 +22,7 @@ _forgepack-utils_ is a Spring Boot auto-configuration library that {DESCRIPTION}
 - [2. Usage](#2-usage)
 - [3. Auto-Configuration](#3-auto-configuration)
 - [4. Quality & Testing](#4-quality--testing)
-- [5. Artifact Coordinates](#5-artifact-coordinates)
+- [5. Artifact Coordinates](#5-utils-coordinates)
 - [Developers](#developers)
 - [License](#license)
 
