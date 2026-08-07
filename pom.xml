@@ -11,8 +11,8 @@
 	<groupId>dev.forgepack</groupId>
 	<artifactId>forgepack-utils</artifactId>
 	<version>0.0.2</version>
-	<name>Maven Library</name>
-	<description>Project for Spring Boot library</description>
+	<name>Forgepack Utils Library</name>
+	<description>Domain-independent cross-cutting utilities: encryption, QR code, and email</description>
 	<url>https://github.com/orgs/forgepack/forgepack-utils</url>
 	<licenses>
 		<license>
