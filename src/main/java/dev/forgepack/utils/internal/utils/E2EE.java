@@ -1,5 +1,7 @@
 package dev.forgepack.utils.internal.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import javax.crypto.Cipher;
@@ -33,6 +35,7 @@ public class E2EE {
     private static final int IV_LENGTH = 16; // 128 bits for AES
     private static final int KEY_LENGTH = 16; // 128 bits for AES
 
+    private static final Logger log = LoggerFactory.getLogger(E2EE.class);
     private final SecureRandom secureRandom = new SecureRandom();
 
     @Value("${app.encryption.secret:defaultSecretKey1234567890123456}")
@@ -82,7 +85,7 @@ public class E2EE {
             return Base64.getEncoder().encodeToString(combined);
 
         } catch (Exception e) {
-//            log.error("Encryption failed: {}", e.getMessage());
+            log.error("Encryption failed: {}", e.getMessage());
             throw new E2EEException("Failed to encrypt data", e);
         }
     }
@@ -122,7 +125,7 @@ public class E2EE {
             byte[] decrypted = cipher.doFinal(encrypted);
             return new String(decrypted, StandardCharsets.UTF_8);
         } catch (Exception e) {
-//            log.error("Decryption failed: {}", e.getMessage());
+            log.error("Decryption failed: {}", e.getMessage());
             throw new E2EEException("Failed to decrypt data", e);
         }
     }
@@ -144,7 +147,7 @@ public class E2EE {
             return keyGenerator.generateKey();
 
         } catch (NoSuchAlgorithmException e) {
-//            log.error("Key generation failed: {}", e.getMessage());
+            log.error("Key generation failed: {}", e.getMessage());
             throw new E2EEException("Failed to generate encryption key", e);
         }
     }

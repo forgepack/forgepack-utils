@@ -1,10 +1,10 @@
 package dev.forgepack.utils.internal.service;
 
 import dev.forgepack.utils.api.service.ServiceEmail;
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,6 +17,9 @@ public class ServiceEmailImpl implements ServiceEmail {
     private final JavaMailSender emailSender;
     private static final Logger log = LoggerFactory.getLogger(ServiceEmailImpl.class);
 
+    @Value("${app.email.from:noreply@example.com}")
+    private String fromAddress;
+
     public ServiceEmailImpl(JavaMailSender emailSender) {
         this.emailSender = emailSender;
     }
@@ -24,7 +27,7 @@ public class ServiceEmailImpl implements ServiceEmail {
     public void sendSimpleMessage(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("noreply@gadelha.eti.br");
+            message.setFrom(fromAddress);
             message.setTo(to);
             message.setSubject(subject);
             message.setText(text);
@@ -40,14 +43,14 @@ public class ServiceEmailImpl implements ServiceEmail {
         try {
             MimeMessage message = emailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-            helper.setFrom("noreply@gadelha.eti.br");
+            helper.setFrom(fromAddress);
             helper.setTo(to);
             helper.setSubject(subject);
             helper.setText(htmlContent, true);
             helper.addAttachment(attachmentName, new ByteArrayResource(attachmentData), mimeType);
             emailSender.send(message);
             log.info("HTML email with attachment sent successfully to: {} with subject: {}", to, subject);
-        } catch (MessagingException e) {
+        } catch (Exception e) {
             log.error("Failed to send HTML email with attachment to: {} with subject: {} - Error: {}", to, subject, e.getMessage());
             throw new RuntimeException("Failed to send email", e);
         }

@@ -17,6 +17,12 @@ import java.io.IOException;
 public class QRCode {
 
     public static byte[] generateQRCodeBytes(String text, int size) {
+        if (text == null || text.isBlank()) {
+            throw new IllegalArgumentException("QR code text cannot be null or blank");
+        }
+        if (size <= 0) {
+            throw new IllegalArgumentException("QR code size must be positive");
+        }
         try {
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
             BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, size, size);
