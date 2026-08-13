@@ -42,6 +42,12 @@
 		<java.version>25</java.version>
 	</properties>
 	<dependencies>
+		<!-- Test: open source testing framework -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!-- Email: send email -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -52,11 +58,6 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>core</artifactId>
 			<version>3.5.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
