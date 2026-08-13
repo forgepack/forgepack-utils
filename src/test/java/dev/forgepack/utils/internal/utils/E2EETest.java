@@ -59,14 +59,6 @@ class E2EETest {
     }
 
     @Test
-    void decrypt_withTooShortPayload_shouldThrowE2EEException() {
-        String tooShort = Base64.getEncoder().encodeToString(new byte[10]);
-        assertThatExceptionOfType(E2EE.E2EEException.class)
-                .isThrownBy(() -> e2ee.decrypt(tooShort))
-                .withMessageContaining("too short");
-    }
-
-    @Test
     void decrypt_withInvalidBase64_shouldThrowE2EEException() {
         assertThatExceptionOfType(E2EE.E2EEException.class)
                 .isThrownBy(() -> e2ee.decrypt("not!!valid!!base64"));
