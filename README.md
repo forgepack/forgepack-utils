@@ -6,7 +6,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/forgepack/forgepack-utils)
 ![Maven Central](https://img.shields.io/maven-central/v/dev.forgepack/utils)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Test Coverage](https://img.shields.io/badge/coverage-0%25-red)
+![Test Coverage](https://img.shields.io/badge/coverage-91%25-brightgreen)
 
 ## Tech Stack
 ![Java](https://img.shields.io/badge/Java-25-orange?logo=openjdk)
@@ -80,13 +80,19 @@ Internal implementation details are encapsulated in `dev.forgepack.utils.interna
 
 ### 4.1. Current Coverage Metrics
 
-GENERAL COVERAGE: 0%
-TOTAL NUMBER OF TESTS: 0
+GENERAL COVERAGE: 92% (instruções: 452/491)
+LINE COVERAGE: 91% (98/108)
+BRANCH COVERAGE: 96% (25/26)
+TOTAL NUMBER OF TESTS: 34
 
 | Package                                              | Coverage |        |
 |:-----------------------------------------------------|:--------:|:------:|
-| 📁 dev.forgepack.utils.api                  |    0%    |   🔴   |
-| 📁 dev.forgepack.utils.internal             |    0%    |   🔴   |
+| 📁 dev.forgepack.utils.internal.configuration | 100%   |   🟢   |
+| 📁 dev.forgepack.utils.internal.service       | 100%   |   🟢   |
+| 📁 dev.forgepack.utils.internal.utils         | 86%    |   🟢   |
+
+Cobertura medida com JaCoCo em 29/09/2026 usando `./mvnw.cmd clean test jacoco:report`.
+O build exige no mínimo 80% de cobertura de linhas e de branches.
 
 ### 4.2. Types of Tests Implemented
 1. __Unit Tests__: Service and component layer
