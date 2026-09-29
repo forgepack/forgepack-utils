@@ -43,12 +43,6 @@
 		<jacoco.version>0.8.15</jacoco.version>
 	</properties>
 	<dependencies>
-		<!-- Test: open source testing framework -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 		<!-- Email: send email -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -59,6 +53,12 @@
 			<groupId>com.google.zxing</groupId>
 			<artifactId>core</artifactId>
 			<version>3.5.4</version>
+		</dependency>
+		<!-- Test: open source testing framework -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
             <groupId>org.jacoco</groupId>
