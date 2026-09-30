@@ -1,7 +1,12 @@
+<div align="center">
+
 # _forgepack-utils_
+
 [![GitHub stars](https://img.shields.io/github/stars/forgepack/forgepack-utils?style=social)](https://github.com/forgepack/forgepack-utils)
 [![GitHub forks](https://img.shields.io/github/forks/forgepack/forgepack-utils?style=social)](https://github.com/forgepack/forgepack-utils/fork)
 [![GitHub watchers](https://img.shields.io/github/watchers/forgepack/forgepack-utils?style=social)](https://github.com/forgepack/forgepack-utils)
+
+<div></div>
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/forgepack/forgepack-utils)
 ![Maven Central](https://img.shields.io/maven-central/v/dev.forgepack/utils)
