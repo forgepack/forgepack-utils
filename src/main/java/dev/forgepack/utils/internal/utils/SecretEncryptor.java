@@ -32,7 +32,7 @@ import java.util.Base64;
 
 @Service
 public class SecretEncryptor {
-    private static final String ALGORITHM = "AES/CBC/PKCS5Padding";
+    private static final String ALGORITHM = "AES/GCM/NoPadding";
     private static final String KEY_ALGORITHM = "AES";
     private static final int IV_LENGTH = 12;
     private static final int TAG_LENGTH_BITS = 128;
@@ -63,7 +63,7 @@ public class SecretEncryptor {
     }
 
     /**
-     * Encrypts data using AES-CBC with a random IV for each operation.
+    * Encrypts data using AES-GCM with a random IV for each operation.
      * The IV is prepended to the encrypted data for decryption.
      *
      * @param data The plaintext data to encrypt
