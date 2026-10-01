@@ -17,9 +17,9 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/forgepack/forgepack-utils)
 ![Maven Central](https://img.shields.io/maven-central/v/dev.forgepack/utils)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Test Coverage](https://img.shields.io/badge/coverage-91%25-brightgreen)
+![Test Coverage](https://img.shields.io/badge/coverage-87%25-brightgreen)
 
-_forgepack-utils_ is a Spring Boot auto-configuration library that {DESCRIPTION}.
+_forgepack-utils_ is a Spring Boot auto-configuration library with domain-independent utilities for email, QR code generation, and AES encryption.
 
 ## SUMMARY
 - [1. Installation](#1-installation)
@@ -84,19 +84,20 @@ Internal implementation details are encapsulated in `dev.forgepack.utils.interna
 
 ### 4.1. Current Coverage Metrics
 
-GENERAL COVERAGE: 92% (instruções: 452/491)
-LINE COVERAGE: 91% (98/108)
-BRANCH COVERAGE: 96% (25/26)
-TOTAL NUMBER OF TESTS: 34
+INSTRUCTION COVERAGE: 89% (447/503)
+LINE COVERAGE: 87% (95/109)
+BRANCH COVERAGE: 83% (30/36)
+TOTAL NUMBER OF TESTS: 39
 
 | Package                                              | Coverage |        |
 |:-----------------------------------------------------|:--------:|:------:|
 | 📁 dev.forgepack.utils.internal.configuration | 100%   |   🟢   |
-| 📁 dev.forgepack.utils.internal.service       | 100%   |   🟢   |
-| 📁 dev.forgepack.utils.internal.utils         | 86%    |   🟢   |
+| 📁 dev.forgepack.utils.internal.service       | 89%    |   🟢   |
+| 📁 dev.forgepack.utils.internal.utils         | 88%    |   🟢   |
 
-Cobertura medida com JaCoCo em 29/09/2026 usando `./mvnw.cmd clean test jacoco:report`.
+Cobertura medida com JaCoCo em 01/10/2026 usando `./mvnw.cmd clean test jacoco:report`.
 O build exige no mínimo 80% de cobertura de linhas e de branches.
+O relatório HTML é gerado em `target/site/jacoco/index.html`.
 
 ### 4.2. Types of Tests Implemented
 1. __Unit Tests__: Service and component layer
