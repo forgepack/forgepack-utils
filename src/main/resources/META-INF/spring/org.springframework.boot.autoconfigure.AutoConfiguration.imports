@@ -1,2 +1,2 @@
-dev.forgepack.utils.internal.configuration.ConfigurationAutomatic
 dev.forgepack.utils.internal.configuration.ConfigurationEmail
+dev.forgepack.utils.internal.configuration.ConfigurationEncryption
