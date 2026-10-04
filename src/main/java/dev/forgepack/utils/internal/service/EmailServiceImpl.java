@@ -1,6 +1,6 @@
 package dev.forgepack.utils.internal.service;
 
-import dev.forgepack.utils.api.service.ServiceEmail;
+import dev.forgepack.utils.api.service.EmailService;
 import jakarta.mail.internet.MimeMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,15 +10,15 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
-public class ServiceEmailImpl implements ServiceEmail {
+public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
-    private static final Logger log = LoggerFactory.getLogger(ServiceEmailImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(EmailServiceImpl.class);
 
     @Value("${app.email.from:noreply@example.com}")
     private String fromAddress;
 
-    public ServiceEmailImpl(JavaMailSender emailSender) {
+    public EmailServiceImpl(JavaMailSender emailSender) {
         this.emailSender = emailSender;
     }
 

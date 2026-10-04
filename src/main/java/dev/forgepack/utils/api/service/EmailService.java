@@ -13,7 +13,7 @@ package dev.forgepack.utils.api.service;
  * @since 1.0
  * @see <a href="http://www.gadelha.eti.br">www.gadelha.eti.br</a>
  */
-public interface ServiceEmail {
+public interface EmailService {
 
     /**
      * Sends a simple plain text email message.

@@ -12,21 +12,23 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.util.ReflectionTestUtils;
 
+import dev.forgepack.utils.api.service.EmailService;
+
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class ServiceEmailImplTest {
+class EmailServiceImplTest {
 
     @Mock
     private JavaMailSender mailSender;
 
-    private ServiceEmailImpl service;
+    private EmailService service;
 
     @BeforeEach
     void setUp() {
-        service = new ServiceEmailImpl(mailSender);
+        service = new EmailServiceImpl(mailSender);
         ReflectionTestUtils.setField(service, "fromAddress", "noreply@test.com");
     }
 

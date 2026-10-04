@@ -1,5 +1,7 @@
 package dev.forgepack.utils.internal.service;
 
+import dev.forgepack.utils.api.exception.EncryptorException;
+import dev.forgepack.utils.api.service.EncryptorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.crypto.Cipher;
@@ -12,26 +14,14 @@ import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-/**
- * End-to-End Encryption (ServiceSecretEncryptor) utility class using AES encryption with secure practices.
- *
- * Security Features:
- * - Random IV for each encryption operation
- * - Configurable encryption key via environment variables
- * - Secure exception handling
- * - Base64 encoding for safe text transmission
- *
- * @author Marcelo Ribeiro Gadelha
- * Website: www.gadelha.eti.br
- **/
-public class ServiceSecretEncryptor {
+public class EncryptorServiceImpl implements EncryptorService {
     private static final String ALGORITHM = "AES/GCM/NoPadding";
     private static final String KEY_ALGORITHM = "AES";
     private static final int IV_LENGTH = 12;
     private static final int TAG_LENGTH_BITS = 128;
     private static final int MIN_ENCRYPTED_LENGTH = IV_LENGTH + TAG_LENGTH_BITS / 8;
 
-    private static final Logger log = LoggerFactory.getLogger(ServiceSecretEncryptor.class);
+    private static final Logger log = LoggerFactory.getLogger(EncryptorServiceImpl.class);
     private static final SecureRandom SECURE_RANDOM = new SecureRandom();
 
     private final SecretKeySpec keySpec;
@@ -39,7 +29,7 @@ public class ServiceSecretEncryptor {
     /**
      * @param base64Key chave AES em Base64 (16, 24 ou 32 bytes após decodificar)
      */
-    public ServiceSecretEncryptor(String base64Key) {
+    public EncryptorServiceImpl(String base64Key) {
         if (base64Key == null || base64Key.isBlank()) {
             throw new IllegalArgumentException("Encryption key must be configured");
         }
@@ -55,17 +45,9 @@ public class ServiceSecretEncryptor {
         this.keySpec = new SecretKeySpec(key, KEY_ALGORITHM);
     }
 
-    /**
-    * Encrypts data using AES-GCM with a random IV for each operation.
-     * The IV is prepended to the encrypted data for decryption.
-     *
-     * @param data The plaintext data to encrypt
-     * @return Base64-encoded string containing IV + encrypted data
-     * @throws ServiceSecretEncryptorException if encryption fails
-     */
-    public String encrypt(String data) throws ServiceSecretEncryptorException {
+    public String encrypt(String data) throws EncryptorException {
         if (data == null) {
-            throw new ServiceSecretEncryptorException("Input data cannot be null");
+            throw new EncryptorException("Input data cannot be null");
         }
 
         try {
@@ -88,20 +70,13 @@ public class ServiceSecretEncryptor {
             return Base64.getEncoder().encodeToString(combined);
         } catch (Exception e) {
             log.error("Encryption failed: {}", e.getMessage());
-            throw new ServiceSecretEncryptorException("Failed to encrypt data", e);
+            throw new EncryptorException("Failed to encrypt data", e);
         }
     }
-    /**
-     * Decrypts data that was encrypted with the encrypt method.
-     * Extracts the IV from the beginning of the encrypted data.
-     *
-     * @param encryptedData Base64-encoded string containing IV + encrypted data
-     * @return The original plaintext data
-     * @throws ServiceSecretEncryptorException if decryption fails
-     */
-    public String decrypt(String encryptedData) throws ServiceSecretEncryptorException {
+
+    public String decrypt(String encryptedData) throws EncryptorException {
         if (encryptedData == null || encryptedData.isBlank()) {
-            throw new ServiceSecretEncryptorException("Encrypted data cannot be null or empty");
+            throw new EncryptorException("Encrypted data cannot be null or empty");
         }
 
         try {
@@ -110,7 +85,7 @@ public class ServiceSecretEncryptor {
 
             // Validate minimum length (IV + at least 1 block of encrypted data)
             if (combined.length < MIN_ENCRYPTED_LENGTH) {
-                throw new ServiceSecretEncryptorException("Invalid encrypted data: too short");
+                throw new EncryptorException("Invalid encrypted data: too short");
             }
 
             // Initialize cipher for decryption
@@ -120,19 +95,13 @@ public class ServiceSecretEncryptor {
             return new String(decrypted, StandardCharsets.UTF_8);
         } catch (Exception e) {
             log.error("Decryption failed: {}", e.getMessage());
-            throw new ServiceSecretEncryptorException("Failed to decrypt data", e);
+            throw new EncryptorException("Failed to decrypt data", e);
         }
     }
-    /**
-     * Generates a new AES secret key with the specified key length.
-     *
-     * @param keyLength Key length in bits (128, 192, or 256)
-     * @return A new SecretKey for AES encryption
-     * @throws ServiceSecretEncryptorException if key generation fails
-     */
-    public SecretKey generateKey(int keyLength) throws ServiceSecretEncryptorException {
+
+    public SecretKey generateKey(int keyLength) throws EncryptorException {
         if (keyLength != 128 && keyLength != 192 && keyLength != 256) {
-            throw new ServiceSecretEncryptorException("Invalid key length. Must be 128, 192 or 256 bits");
+            throw new EncryptorException("Invalid key length. Must be 128, 192 or 256 bits");
         }
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance(KEY_ALGORITHM);
@@ -140,19 +109,11 @@ public class ServiceSecretEncryptor {
             return keyGenerator.generateKey();
         } catch (GeneralSecurityException e) {
             log.error("Key generation failed: {}", e.getMessage());
-            throw new ServiceSecretEncryptorException("Failed to generate encryption key", e);
+            throw new EncryptorException("Failed to generate encryption key", e);
         }
     }
 
-    /**
-     * Generates a random secure key for encryption as Base64 string.
-     * Useful for generating new keys to be stored in configuration at app.encryption.secret.
-     *
-     * @param keyLength Key length in bits
-     * @return Base64-encoded random key
-     * @throws ServiceSecretEncryptorException if key generation fails
-     */
-    public String generateKeyAsString(int keyLength) throws ServiceSecretEncryptorException {
+    public String generateKeyAsString(int keyLength) throws EncryptorException {
         SecretKey key = generateKey(keyLength);
         return Base64.getEncoder().encodeToString(key.getEncoded());
     }
@@ -169,19 +130,6 @@ public class ServiceSecretEncryptor {
             return true;
         } catch (Exception e) {
             return false;
-        }
-    }
-
-    /**
-     * Custom exception for ServiceSecretEncryptor operations
-     */
-    public static class ServiceSecretEncryptorException extends Exception {
-        public ServiceSecretEncryptorException(String message) {
-            super(message);
-        }
-
-        public ServiceSecretEncryptorException(String message, Throwable cause) {
-            super(message, cause);
         }
     }
 }
